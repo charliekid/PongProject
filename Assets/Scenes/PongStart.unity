@@ -856,7 +856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8115300053b124c289421bf6937f9f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplify: 10
+  amplify: 100
+  leftScore: 0
+  rightScore: 0
 --- !u!54 &1312246550
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -975,6 +977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936568251}
+  - component: {fileID: 1936568250}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -982,6 +985,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1936568250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936568249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18511677cb69f41ad876ceef558b1170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftScore: 0
+  rightScore: 0
 --- !u!4 &1936568251
 Transform:
   m_ObjectHideFlags: 0
