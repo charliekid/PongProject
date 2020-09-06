@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/**
+ * So I was able to get this class to work at one point. Then I went to bed and tried
+ * it again and it just didnt work. So i'm leaving this here just because. 
+ * 
+ * Is there a reason why this didn't work when I attached it to the InputManager Object?
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,12 +20,14 @@ public class InputManager : MonoBehaviour
     public const float MAX_SCORE = 3;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         rightPaddle = GameObject.Find("PaddleRight");
         leftPaddle = GameObject.Find("PaddleLeft");
         ball = GameObject.Find("Ball");
+        
     }
 
     // Update is called once per frame

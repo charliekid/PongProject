@@ -15,7 +15,8 @@ public class Ball : MonoBehaviour
     public float rightScore = 0;
     public const float MAX_SCORE = 2;
 
-
+    // Audio
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,8 @@ public class Ball : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rightPaddle = GameObject.Find("PaddleRight");
         leftPaddle = GameObject.Find("PaddleLeft");
-        for(int i = 0; i < 15; i++)
+        source = GetComponent<AudioSource>();
+        for (int i = 0; i < 15; i++)
         {
             AddForce();
         }
@@ -39,7 +41,7 @@ public class Ball : MonoBehaviour
             leftScore++;
             if (leftScore == MAX_SCORE)
             {
-                Debug.Log("GAME OVER!! LEFT PADDLE WON!!!");
+                Debug.Log("GAME OVER!! LEFT PADDLE WINS!!!");
                 Debug.Log("Final score |L:" + leftScore + " R:" + rightScore + "|");
                 RestartGame();  
             }
@@ -54,7 +56,7 @@ public class Ball : MonoBehaviour
             rightScore++; 
             if (rightScore == MAX_SCORE)
             {
-                Debug.Log("GAME OVER!! RIGHT PADDLE WON!!!");
+                Debug.Log("GAME OVER!! RIGHT PADDLE WINS!!!");
                 Debug.Log("Final SCORE |L:" + leftScore + " R:" + rightScore + "|");
                 RestartGame();
             }
@@ -102,6 +104,7 @@ public class Ball : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         other.gameObject.GetComponent<MeshRenderer>().material.color = NewColor();
+        source.Play();
         for (int i = 0; i < 15; i++)
         {
             AddForce();
