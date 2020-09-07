@@ -7,7 +7,6 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     public float amplify = 20;
 
-
     GameObject rightPaddle;
     GameObject leftPaddle;
 
@@ -34,8 +33,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if the ball is passed 11.15 on the x position score is to the left paddle
-        // if ball is pass -40 on the x position score is  the right paddle
+        // When the ball passes the right paddle
         if (transform.position.x > 11)
         {
             leftScore++;
@@ -51,6 +49,7 @@ public class Ball : MonoBehaviour
             }
 
         }
+        // When the ball passes the left paddle
         if (transform.position.x < -12)
         {
             rightScore++; 
@@ -68,6 +67,10 @@ public class Ball : MonoBehaviour
         }
     }
 
+    /**
+     * Left player/paddle scored. This method repositions the paddle, ball,
+     * and increases the score. 
+     */ 
     public void LeftScored()
     {
         Debug.Log("LEFT PERSON SCORES");
@@ -75,9 +78,11 @@ public class Ball : MonoBehaviour
         transform.position = new Vector3(9, 1, 0);
         Debug.Log("CURRENT SCORE |L:" + leftScore + " R:" + rightScore + "|");
         ResetForce();
-
     }
-
+    /**
+     * Right player/paddle scored. This method repositions the paddle, ball,
+     * and increases the score. 
+     */
     public void RightScored()
     {
         Debug.Log("RIGHT PERSON SCORES");
@@ -86,6 +91,9 @@ public class Ball : MonoBehaviour
         Debug.Log("CURRENT SCORE |L:" + leftScore + " R:" + rightScore + "|");
         ResetForce();
     }
+    /**
+     * This method restarts the paddles and the ball for a 
+     */
     public void RestartGame()
     {
         leftScore = 0;
@@ -109,26 +117,16 @@ public class Ball : MonoBehaviour
         {
             AddForce();
         }
-
     }
-    private void FixedUpdate()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddForce();
-        }*/
-
-    }
-
+    /**
+     * This adds force to the ball
+     */
     private void AddForce()
     {
-        // goes straight down the x axis
         rb.AddForce(new Vector3(1, 0, 0 * amplify));
     }
     private void ResetForce()
     {
-        // goes straight down the x axis
-        //rb.AddForce(new Vector3(1, 0, 0));
         rb.isKinematic = true;
         for (int i = 0; i < 15; i++)
         {
