@@ -12,7 +12,7 @@ public class Ball : MonoBehaviour
 
     public float leftScore = 0;
     public float rightScore = 0;
-    public const float MAX_SCORE = 2;
+    public const float MAX_SCORE = 11;
 
     // Audio
     AudioSource source;
